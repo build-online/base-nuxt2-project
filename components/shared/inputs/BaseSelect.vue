@@ -72,7 +72,7 @@ export default {
 
 <style scoped>
 .select {
-  @apply bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none sm:text-sm;
+  @apply bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none sm:text-sm focus:border-primary;
 }
 
 .options {

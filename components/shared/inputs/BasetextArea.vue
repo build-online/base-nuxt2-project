@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
 .textarea {
-  @apply shadow-sm block w-full outline-none focus:outline-none focus:border-primary sm:text-sm border border-gray-300  rounded-md mt-1;
+  @apply shadow-sm block w-full outline-none focus:outline-none focus:border-primary focus:ring-0 sm:text-sm border border-gray-300  rounded-md mt-1;
 }
 
 .error {
