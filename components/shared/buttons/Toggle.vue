@@ -42,7 +42,6 @@ export default {
     background: { type: String, default: 'bg-success' },
     label: { type: String },
   },
-
   data() {
     return {
       on: false,
