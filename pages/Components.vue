@@ -21,7 +21,6 @@
               <InfoIcon class='w-5 h-5' />
             </template>
           </BaseButton>
-
         </div>
         <div class='flex justify-start space-x-3'>
           <Badge text='Badge' />
@@ -52,7 +51,6 @@ import InfoIcon from '@/components/shared/icons/InfoIcon'
 
 export default {
   name: 'Components',
-
   components: {
     InfoIcon,
     AvatarImage,
