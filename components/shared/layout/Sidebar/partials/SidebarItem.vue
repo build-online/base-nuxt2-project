@@ -1,21 +1,25 @@
 <template>
-  <router-link :to="{ name: route }" class="sidebar-item">
-    <slot name="icon"></slot>
+  <NuxtLink :to='route' class='sidebar-item hover:bg-primary-50'>
+    <slot name='icon'></slot>
     {{ text }}
-  </router-link>
+  </NuxtLink>
 </template>
 <script>
 export default {
   name: 'SidebarItem',
   props: {
-    route: { type: Object },
-    text: { type: String, default: 'Sidebar item' },
-  },
-};
+    route: { type: String, default: '/' },
+    text: { type: String, default: 'Sidebar item' }
+  }
+}
 </script>
 
 <style scoped>
 .sidebar-item {
-  @apply text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md hover:bg-gray-900;
+  @apply text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-all ease-in duration-150;
+}
+
+.nuxt-link-exact-active {
+  background: #F5ABAB;
 }
 </style>

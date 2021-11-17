@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-shrink-0 flex bg-gray-700 p-4">
+  <div class="flex-shrink-0 flex p-4">
     <a href="#" class="flex-shrink-0 w-full group block">
       <div class="flex items-center">
         <div>
