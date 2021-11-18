@@ -35,6 +35,14 @@
         <Toggle label='Accept terms and conditions' />
       </div>
     </div>
+    <!-- Modal-->
+    <portal to='main'>
+      <Modal ref='modal'>
+        <template slot='content'>
+          <ActionsModal />
+        </template>
+      </Modal>
+    </portal>
   </div>
 </template>
 
@@ -47,6 +55,8 @@ import BaseTextArea from '@/components/shared/inputs/BaseTextArea'
 import Badge from '@/components/shared/Badge'
 import AvatarImage from '@/components/shared/AvatarImage'
 import InfoIcon from '@/components/shared/icons/InfoIcon'
+import Modal from '@/components/shared/modals/Modal'
+import ActionsModal from '@/components/shared/modals/ActionsModal'
 
 
 export default {
@@ -113,6 +123,7 @@ export default {
         },
       });
     }
+
   }
 }
 </script>

@@ -25,7 +25,7 @@ export default {
     loading: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
     btnStyle: { type: String, default: 'primary' },
-    size: { type: String, default: 'normal' },
+    size: { type: String, default: 'normal' }
   },
 
   computed: {
@@ -41,7 +41,7 @@ export default {
     buttonType() {
       switch (this.btnStyle) {
         case 'primary':
-          return 'btn';
+          return 'btn'
         case 'outline':
           return 'btn-outline'
         case 'success':
