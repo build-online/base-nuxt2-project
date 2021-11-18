@@ -6,6 +6,9 @@
 
 <script>
 export default {
-  layout: 'default'
+  layout: 'default',
+  created() {
+    this.$router.push('/components')
+  }
 }
 </script>

@@ -8,19 +8,20 @@
         <BaseTextArea label='Message' />
       </div>
       <div class='flex flex-col space-y-5 items-start'>
-        <div class='flex items-center space-x-3'>
+        <div class='grid grid-cols-2 grid-rows-2 gap-4 items-center w-full'>
           <BaseButton text='Button' />
-          <BaseButton text='Launch toast' @onClick='launchToast'>
+          <BaseButton text='Button' size='small' />
+          <BaseButton text='Launch toast' btn-style='outline' @click='launchToast'>
             <template slot='leftIcon'>
               <InfoIcon class='w-5 h-5' />
             </template>
           </BaseButton>
-          <BaseButton text='Button'>
+          <BaseButton text='Launch modal' @click='launchModal'>
             <template slot='rightIcon'>
               <InfoIcon class='w-5 h-5' />
             </template>
           </BaseButton>
-          <BaseButton text='Button' size='small' />
+
         </div>
         <div class='flex justify-start space-x-3'>
           <Badge text='Badge' />
@@ -35,6 +36,14 @@
         <Toggle label='Accept terms and conditions' />
       </div>
     </div>
+    <!-- Modal-->
+    <portal to='main'>
+      <Modal ref='modal'>
+        <template slot='content'>
+          <ActionsModal />
+        </template>
+      </Modal>
+    </portal>
   </div>
 </template>
 
@@ -47,6 +56,8 @@ import BaseTextArea from '@/components/shared/inputs/BasetextArea'
 import Badge from '@/components/shared/Badge'
 import AvatarImage from '@/components/shared/AvatarImage'
 import InfoIcon from '@/components/shared/icons/InfoIcon'
+import Modal from '@/components/shared/modals/Modal'
+import ActionsModal from '@/components/shared/modals/ActionsModal'
 
 
 export default {
@@ -59,7 +70,9 @@ export default {
     Toggle,
     BaseButton,
     BaseSelect,
-    BaseInput
+    BaseInput,
+    Modal,
+    ActionsModal
   },
   layout: 'default',
   data() {
@@ -91,7 +104,11 @@ export default {
         type: 'success',
         duration: 5000
       })
+    },
+    launchModal() {
+      this.$refs.modal.show()
     }
+
   }
 }
 </script>

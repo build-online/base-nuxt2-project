@@ -12,18 +12,22 @@ module.exports = {
         tertiary: '#161616',
         success: '#34D399',
         warning: '#FCD34D',
+        danger: '#F87171'
       },
       borderColor: {
         primary: '#eb5757',
-        'primary-80': '#EF7979',
-      },
-    },
+        success: '#34D399',
+        warning: '#FCD34D',
+        danger: '#F87171',
+        'primary-80': '#EF7979'
+      }
+    }
   },
   variants: {
     extend: {
       opacity: ['disabled'],
-      cursor: ['disabled'],
-    },
+      cursor: ['disabled']
+    }
   },
-  plugins: [require('@tailwindcss/forms')],
-};
+  plugins: [require('@tailwindcss/forms')]
+}
