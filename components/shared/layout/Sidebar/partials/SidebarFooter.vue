@@ -13,8 +13,10 @@
     </a>
   </div>
 </template>
+
 <script>
 import AvatarImage from '@/components/shared/AvatarImage';
+
 export default {
   name: 'SidebarFooter',
   components: { AvatarImage },
