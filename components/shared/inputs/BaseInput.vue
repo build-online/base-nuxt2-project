@@ -30,7 +30,9 @@ import Label from '@/components/shared/Label';
 
 export default {
   name: 'BaseInput',
+
   components: { Label },
+
   props: {
     label: { type: String },
     type: { type: String, default: 'text' },
@@ -38,14 +40,17 @@ export default {
     value: { type: String },
     placeholder: { type: String },
   },
+
   computed: {
     hasLeftIcon() {
       return this.$slots.leftIcon ? true : false;
     },
+    
     hasRightIcon() {
       return this.$slots.rightIcon ? true : false;
     },
   },
+
   methods: {
     onInput(event) {
       this.$emit('input', event.target.value);

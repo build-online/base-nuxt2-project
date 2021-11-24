@@ -9,18 +9,19 @@
           <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7' />
         </svg>
       </div>
+
       <div class='mt-3 text-center sm:mt-5'>
         <h3 id='modal-title' class='text-lg leading-6 font-medium text-gray-900'>
-          Payment successful
+          <slot name='title'></slot>
         </h3>
         <div class='mt-2'>
           <p class='text-sm text-gray-500'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius aliquam laudantium explicabo pariatur
-            iste dolorem animi vitae error totam. At sapiente aliquam accusamus facere veritatis.
+            <slot name='content'></slot>
           </p>
         </div>
       </div>
     </div>
+
     <div class='mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense'>
       <BaseButton text='Decline' btn-style='outline' @click='close' />
       <BaseButton text='Accept' btn-style='success' @click='close' />
@@ -29,13 +30,15 @@
 </template>
 
 <script>
-import BaseButton from '@/components/shared/buttons/BaseButton'
+import BaseButton from '@/components/shared/buttons/BaseButton';
 
 export default {
   name: 'ActionsModal',
+
   components: {
     BaseButton
   },
+
   methods: {
     close() {
       this.$nuxt.$emit('close')

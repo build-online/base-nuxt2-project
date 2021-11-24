@@ -89,12 +89,14 @@
   </div>
 </template>
 <script>
-import SidebarFooter from '@/components/shared/layout/Sidebar/partials/SidebarFooter'
-import SidebarItem from '@/components/shared/layout/Sidebar/partials/SidebarItem'
+import SidebarFooter from '@/components/shared/layout/Sidebar/partials/SidebarFooter';
+import SidebarItem from '@/components/shared/layout/Sidebar/partials/SidebarItem';
 
 export default {
   name: 'MobileMenu',
+
   components: { SidebarItem, SidebarFooter },
+
   props: {
     menuItems: { type: Array }
   }

@@ -33,14 +33,17 @@
 </template>
 
 <script>
-import { HomeIcon, FigmaIcon } from 'vue-feather-icons'
-import SidebarItem from '@/components/shared/layout/Sidebar/partials/SidebarItem'
-import SidebarFooter from '@/components/shared/layout/Sidebar/partials/SidebarFooter'
-import MobileMenu from '@/components/shared/layout/Sidebar/partials/MobileMenu'
+import { HomeIcon, FigmaIcon } from 'vue-feather-icons';
+
+import SidebarItem from '@/components/shared/layout/Sidebar/partials/SidebarItem';
+import SidebarFooter from '@/components/shared/layout/Sidebar/partials/SidebarFooter';
+import MobileMenu from '@/components/shared/layout/Sidebar/partials/MobileMenu';
 
 export default {
   name: 'Sidebar',
+
   components: { MobileMenu, SidebarFooter, SidebarItem, HomeIcon, FigmaIcon },
+  
   data() {
     return {
       menuItems: [

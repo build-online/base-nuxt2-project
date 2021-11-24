@@ -35,16 +35,20 @@ import Label from '@/components/shared/Label';
 
 export default {
   name: 'Toggle',
+
   components: { Label },
+
   props: {
     background: { type: String, default: 'bg-success' },
     label: { type: String },
   },
+
   data() {
     return {
       on: false,
     };
   },
+  
   methods: {
     toggle() {
       this.on = !this.on;

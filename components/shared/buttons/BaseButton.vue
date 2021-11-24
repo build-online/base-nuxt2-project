@@ -1,30 +1,31 @@
 <template>
   <button
-    type='button'
-    :class='[buttonType,padding, centerText]'
-    :disabled='disabled'
-    @click.stop='onClick'
-    @mousedown='onMousedown'
+    type="button"
+    :class="[buttonType, padding, centerText]"
+    :disabled="disabled"
+    @click="onClick"
+    @mousedown="onMousedown"
   >
-      <span class='mr-3 -ml-1'>
-        <slot name='leftIcon'></slot>
-      </span>
+    <span class="mr-3 -ml-1">
+      <slot name="leftIcon"></slot>
+    </span>
     {{ text }}
-    <span class='ml-3 -mr-1'>
-        <slot name='rightIcon'></slot>
-      </span>
+    <span class="ml-3 -mr-1">
+      <slot name="rightIcon"></slot>
+    </span>
   </button>
 </template>
 
 <script>
 export default {
   name: 'BaseButton',
+  
   props: {
     text: { type: String, default: '' },
     loading: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
     btnStyle: { type: String, default: 'primary' },
-    size: { type: String, default: 'normal' }
+    size: { type: String, default: 'normal' },
   },
 
   computed: {
@@ -36,10 +37,11 @@ export default {
           return 'px-4 py-2'
       }
     },
+
     buttonType() {
       switch (this.btnStyle) {
         case 'primary':
-          return 'btn'
+          return 'btn';
         case 'outline':
           return 'btn-outline'
         case 'success':
@@ -50,25 +52,31 @@ export default {
           return 'btn'
       }
     },
+
     hasLeftIcon() {
-      return !!this.$slots.leftIcon
+      return !!this.$slots.leftIcon;
     },
+
     hasRightIcon() {
-      return !!this.$slots.rightIcon
+      return !!this.$slots.rightIcon;
     },
+
     centerText() {
-      return this.hasLeftIcon === false && this.hasRightIcon === false ? 'justify-center' : 'justify-between'
-    }
+      return this.hasLeftIcon === false && this.hasRightIcon === false
+        ? 'justify-center'
+        : 'justify-between';
+    },
   },
 
   methods: {
     onClick() {
-      this.$emit('click')
+      this.$emit('click');
     },
+
     onMousedown() {
-      this.$emit('onMousedown')
-    }
-  }
+      this.$emit('mousedown');
+    },
+  },
 }
 </script>
 
