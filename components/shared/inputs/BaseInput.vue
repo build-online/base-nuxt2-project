@@ -40,6 +40,7 @@ export default {
     value: { type: String },
     placeholder: { type: String },
   },
+
   computed: {
     hasLeftIcon() {
       return this.$slots.leftIcon ? true : false;
@@ -49,6 +50,7 @@ export default {
       return this.$slots.rightIcon ? true : false;
     },
   },
+
   methods: {
     onInput(event) {
       this.$emit('input', event.target.value);

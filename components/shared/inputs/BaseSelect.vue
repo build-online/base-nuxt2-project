@@ -39,6 +39,7 @@
 
 <script>
 import { mixin as clickaway } from 'vue-clickaway';
+
 import Label from '@/components/shared/Label';
 import ArrowsIcon from '@/components/shared/icons/ArrowsIcon';
 import CheckIcon from '@/components/shared/icons/CheckIcon';
@@ -54,6 +55,7 @@ export default {
     options: { type: Array },
     label: { type: String },
   },
+
   data() {
     return {
       isOpen: false,
