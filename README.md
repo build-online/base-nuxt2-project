@@ -17,8 +17,6 @@ $ yarn start
 $ yarn generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
-
 ## Special Directories
 
 You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
@@ -67,3 +65,23 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+### `addons`
+
+There are two custom injections on this project in order to keep the app using our own code base. For notifications purposes we have the global modal plugin that could be used invoking this code:
+
+```
+this.$modal.open({
+    component: () => import('@/components/example');
+});
+```
+
+We have a global toast plugin:
+
+```
+this.$toast.showMessage({
+    title: "It works",
+    message: "Our Plugin worked Successfully!",
+    type: "success"
+});
+```
