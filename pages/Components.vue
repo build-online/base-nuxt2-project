@@ -122,8 +122,18 @@ export default {
           password: 'password',
         },
       });
-    }
+    },
 
+    async onLogin() {
+      const result = await this.$auth.loginWith('local', {
+        data: {
+          email: 'admin@admin.com',
+          password: 'password',
+        },
+      });
+
+      console.log(result);
+    }
   }
 }
 </script>
