@@ -9,7 +9,7 @@
       </div>
       <div class='flex flex-col space-y-5 items-start'>
         <div class='grid grid-cols-2 grid-rows-2 gap-4 items-center w-full'>
-          <BaseButton text='Button' />
+          <BaseButton text='Login' @click="onLogin" />
           <BaseButton text='Button' size='small' />
           <BaseButton text='Launch toast' btn-style='outline' @click='launchToast'>
             <template slot='leftIcon'>
@@ -105,10 +105,21 @@ export default {
         duration: 5000
       })
     },
+
     launchModal() {
       this.$refs.modal.show()
-    }
+    },
 
+    async onLogin() {
+      const result = await this.$auth.loginWith('local', {
+        data: {
+          email: 'admin@admin.com',
+          password: 'password',
+        },
+      });
+
+      console.log(result);
+    }
   }
 }
 </script>
