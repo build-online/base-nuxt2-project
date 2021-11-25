@@ -85,3 +85,12 @@ this.$toast.showMessage({
     type: "success"
 });
 ```
+
+### `nuxt-auth`
+
+The project has nuxt-auth integrated. This package provide a simple way to handle all the authentication stuff. On the nuxt.config.js file we are able to update the auth config under the auth section. By default the project is predefined to use a token based authentication which means that we need to have defined in our backend couple routes:
+- login (where the login attempt is requested)
+- logout (where the logout attempt is requested)
+- user (where the package require information about the logged user)
+
+It's important to clarify that we can user laravel-passport or laravel-sanctum for this implementation. The only restriction that we have is that the package require the routes defined above.
