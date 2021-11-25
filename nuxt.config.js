@@ -21,6 +21,7 @@ export default {
   plugins: [
     '~/plugins/vuePortal.js',
     '~/plugins/toast.js',
+    '~/plugins/modal.js',
   ],
 
   components: true,

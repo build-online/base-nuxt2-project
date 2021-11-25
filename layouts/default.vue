@@ -12,15 +12,17 @@
       <portal-target name='main' />
     </div>
     <Toast />
+    <Modal />
   </div>
 </template>
 
 <script>
 import Toast from '@/components/shared/Toast';
+import Modal from '@/components/shared/Modal';
 import Sidebar from '@/components/shared/layout/Sidebar';
 
 export default {
-  components: { Sidebar, Toast }
+  components: { Toast, Modal, Sidebar }
 }
 </script>
 
