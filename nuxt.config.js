@@ -20,6 +20,7 @@ export default {
 
   plugins: [
     '~/plugins/vuePortal.js',
+    '~/plugins/toast.js',
   ],
 
   components: true,

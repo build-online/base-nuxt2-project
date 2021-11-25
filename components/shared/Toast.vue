@@ -1,5 +1,5 @@
 <template>
-  <div v-if='showToast' class='toast' :class='componentStyles'>
+  <div v-show='show' class='toast' :class='componentStyles'>
     <div class='p-4'>
       <div class='flex items-start'>
         <div class='flex-shrink-0'>
@@ -30,14 +30,23 @@ import WarningIcon from '@/components/shared/icons/WarningIcon'
 
 export default {
   name: 'Toast',
+
   components: { WarningIcon, InfoIcon, SuccessIcon, XIcon },
+
   props: {
-    title: { type: String, default: '' },
-    message: { type: String, default: '' },
     withCloseButton: { type: Boolean, default: true },
-    type: { type: String, default: 'success' },
-    showToast: { type: Boolean, default: false }
   },
+  
+  data() {
+    return {
+      title: "",
+      message: "",
+      type: "success",
+      duration: 4000,
+      show: false
+    };
+  },
+
   computed: {
     componentStyles() {
       switch (this.type) {
@@ -51,6 +60,22 @@ export default {
           return 'bg-blue-50 text-blue-800'
       }
     }
+  },
+
+  created() {
+    this.$store.subscribe((mutation, state) => {
+      if (mutation.type === "toast/showMessage") {
+        this.title = state.toast.title;
+        this.message = state.toast.message;
+        this.type = state.toast.type;
+        this.duration = state.toast.duration;
+        this.show = true;
+        
+        setTimeout(() => {
+          this.show = false;
+        }, this.duration);
+      }
+    });
   }
 }
 </script>
