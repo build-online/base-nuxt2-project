@@ -98,12 +98,11 @@ export default {
   },
   methods: {
     launchToast() {
-      this.$nuxt.$emit('show-toast', {
-        title: 'Image loaded successfully',
-        message: 'Your image has been uploaded successfully',
-        type: 'success',
-        duration: 5000
-      })
+      this.$toast.showMessage({
+        title: "It works",
+        message: "YAY Our Plugin worked Successfully!",
+        type: "success"
+      });
     },
 
     launchModal() {
@@ -111,14 +110,12 @@ export default {
     },
 
     async onLogin() {
-      const result = await this.$auth.loginWith('local', {
+      await this.$auth.loginWith('local', {
         data: {
           email: 'admin@admin.com',
           password: 'password',
         },
       });
-
-      console.log(result);
     }
   }
 }
