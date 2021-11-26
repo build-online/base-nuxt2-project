@@ -1,7 +1,7 @@
 <template>
     <transition @enter="onPageEnter">
-        <ul v-if="show">
-            <li v-for="user in users" :key="user.id" @click="onUserClick(user)">
+        <ul v-if="state.show">
+            <li v-for="user in users" :key="user.id" @click="onUserClick">
                 {{ user.name }} - {{ user.email }}
                 <hr />
             </li>
@@ -10,45 +10,42 @@
 </template>
 
 <script>
-import anime from 'animejs';
+import { onMounted, reactive, useContext } from '@nuxtjs/composition-api';
+
+import userAnime from '@/composables/useAnime';
+import useUsers from '@/composables/useUsers';
 
 export default {
     layout: 'clean',
 
-    data() {
-        return {
-            users: [],
-            show: false,
-        }
+    setup() {
+        // REUSABLE LOGIC
+        const { onPageEnter } = userAnime();
+        const { fetchUsers, users, onUserClick } = useUsers();
+        const { $toast } = useContext();
+
+        // COMPONENT STATE
+        const state = reactive({ show: false });
+
+        // MOUNTED HOOK
+        onMounted(async () => {
+            try {
+                await fetchUsers();
+                state.show = true;
+            } catch (ex) {
+                $toast.showMessage({
+                    title: "An error ocurred",
+                    message: ex
+                });
+            }
+        });
+
+        return{
+            state,
+            users,
+            onPageEnter,
+            onUserClick
+        };
     },
-
-    async mounted() {
-        try {
-            const response = await fetch('https://jsonplaceholder.typicode.com/users')
-            this.users = await response.json(); 
-            this.show = true;
-        } catch (ex) {
-            this.$toast.showMessage({
-                title: "An error ocurred",
-            })
-        }
-    },
-
-    methods: {
-        onUserClick(user) {
-            this.$toast.showMessage({
-                title: "User clicked",
-                message: `Hi, ${user.name}!`,
-            })
-        },
-
-        onPageEnter(el) {
-            anime({
-                targets: el,
-                opacity: [0, 1],
-                duration: 2000,
-            })
-        },
-    }
 }
 </script>

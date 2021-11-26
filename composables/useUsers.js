@@ -1,16 +1,27 @@
-import { ref } from '@nuxtjs/composition-api';
+import { ref, useContext } from '@nuxtjs/composition-api';
 
-const users = ref([]);
+const useUsers = function() {
+    const users = ref([]);
 
-const fetchUsers = async () => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users')
-    users.value = await response.json(); 
+    const { $toast } = useContext();
+    
+    const fetchUsers = async () => {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users')
+        users.value = await response.json(); 
+    };
+
+    const onUserClick = (user) => {
+        $toast.showMessage({
+            title: "User clicked",
+            message: `Hi, ${user.name}!`,
+        })
+    };
+    
+    return {
+        users,
+        fetchUsers,
+        onUserClick
+    }
 }
 
-const filterUsers = (name) => users.filter(user => user.name === name);
-
-export {
-    users,
-    fetchUsers,
-    filterUsers
-}
+export default useUsers;
