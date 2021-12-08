@@ -37,7 +37,7 @@
             </div>
             <div class="mt-2">
               <p class="text-sm text-gray-500">
-                <component v-bind:is="component" v-on-clickaway="close"/>
+                <component v-bind:is="component" v-on-clickaway="close" :initialData="initialData"/>
               </p>
             </div>
           </div>
@@ -66,6 +66,7 @@ export default {
       show: false,
       title: '',
       component: null,
+      initialData: {}
     }
   },
 
@@ -94,6 +95,7 @@ export default {
       if (mutation.type === 'modal/open') {
         this.title = state.modal.title
         this.component = state.modal.component
+        this.initialData = state.modal.initialData
         this.show = true
       }
     })
