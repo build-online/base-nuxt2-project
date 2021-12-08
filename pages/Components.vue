@@ -99,7 +99,11 @@ export default {
 
     launchModal() {
       this.$modal.open({
-        component: () => import('@/components/forms/Example')
+        component: () => import('@/components/forms/Example'),
+        initialData: {
+          name: "Juan",
+          surname: "Vargas"
+        }
       });
     },
 

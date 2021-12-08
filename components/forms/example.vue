@@ -28,6 +28,17 @@ export default {
         BaseInput,
         BaseTextArea,
         BaseButton
+    },
+
+    props: {
+        initialData: {
+            type: Object,
+            default: () => {}
+        }
+    },
+
+    created() {
+        this.data = this.initialData;
     }
 }
 </script>
