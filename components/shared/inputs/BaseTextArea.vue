@@ -20,7 +20,7 @@ export default {
   name: 'BaseTextArea',
 
   components: { Label },
-
+  
   props: {
     label: { type: String },
     resize: { type: String, default: 'resize-none' },
@@ -28,7 +28,7 @@ export default {
     errors: { type: Array },
     placeholder: { type: String },
   },
-
+  
   methods: {
     onInput(event) {
       this.$emit('input', event.target.value);
