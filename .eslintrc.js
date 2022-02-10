@@ -1,20 +1,25 @@
 module.exports = {
   root: true,
   env: {
-    browser: true,
-    node: true
-  },
-  parserOptions: {
-    parser: '@babel/eslint-parser',
-    requireConfigFile: false
+    node: true,
   },
   extends: [
-    '@nuxtjs',
-    'plugin:nuxt/recommended',
-    'prettier'
+    'plugin:vue/recommended',
+    'eslint:recommended',
+    'prettier',
+    'plugin:prettier/recommended',
+    'plugin:cypress/recommended',
   ],
-  plugins: [
-  ],
-  // add your custom rules here
-  rules: {}
-}
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
+  plugins: ['prettier', 'cypress'],
+  rules: {
+    'no-console': 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+    'prettier/prettier': 'error',
+    'vue/order-in-components': process.env.NODE_ENV === 'production' ? 'off' : 'warn',
+    'vue/require-default-prop': process.env.NODE_ENV === 'production' ? 'off' : 'warn',
+  },
+};

@@ -1,18 +1,18 @@
 <template>
-  <NuxtLink :to='route' class='sidebar-item hover:bg-primary-50'>
-    <slot name='icon'></slot>
+  <NuxtLink :to="route" class="sidebar-item hover:bg-primary-50">
+    <slot name="icon"></slot>
     {{ text }}
   </NuxtLink>
 </template>
 <script>
 export default {
   name: 'SidebarItem',
-  
+
   props: {
     route: { type: String, default: '/' },
-    text: { type: String, default: 'Sidebar item' }
-  }
-}
+    text: { type: String, default: 'Sidebar item' },
+  },
+};
 </script>
 
 <style scoped>
@@ -21,6 +21,6 @@ export default {
 }
 
 .nuxt-link-exact-active {
-  background: #F5ABAB;
+  background: #f5abab;
 }
 </style>
