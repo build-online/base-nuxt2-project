@@ -62,7 +62,7 @@ export default {
       selectedOption: null,
     };
   },
-  
+
   methods: {
     setSelectedOption(option) {
       this.selectedOption = option;

@@ -1,11 +1,9 @@
 <template>
-  <div>
-    Im Home
-  </div>
+  <div>Im Home</div>
 </template>
 
 <script>
 export default {
-  layout: 'default'
-}
+  layout: 'default',
+};
 </script>

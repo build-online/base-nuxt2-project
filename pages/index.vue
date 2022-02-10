@@ -1,14 +1,12 @@
 <template>
-  <div>
-    Im index
-  </div>
+  <div>Im index</div>
 </template>
 
 <script>
 export default {
   layout: 'default',
   created() {
-    this.$router.push('/components')
-  }
-}
+    this.$router.push('/components');
+  },
+};
 </script>

@@ -45,7 +45,7 @@ export default {
     hasLeftIcon() {
       return this.$slots.leftIcon ? true : false;
     },
-    
+
     hasRightIcon() {
       return this.$slots.rightIcon ? true : false;
     },
