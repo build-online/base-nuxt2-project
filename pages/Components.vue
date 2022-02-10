@@ -113,15 +113,6 @@ export default {
         },
       });
     },
-
-    async onLogin() {
-      await this.$auth.loginWith('local', {
-        data: {
-          email: 'admin@admin.com',
-          password: 'password',
-        },
-      });
-    }
   }
 }
 </script>
