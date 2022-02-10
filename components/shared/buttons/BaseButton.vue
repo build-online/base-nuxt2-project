@@ -19,7 +19,7 @@
 <script>
 export default {
   name: 'BaseButton',
-  
+
   props: {
     text: { type: String, default: '' },
     loading: { type: Boolean, default: false },
@@ -32,9 +32,9 @@ export default {
     padding() {
       switch (this.size) {
         case 'small':
-          return 'px-4 py-1'
+          return 'px-4 py-1';
         default:
-          return 'px-4 py-2'
+          return 'px-4 py-2';
       }
     },
 
@@ -43,13 +43,13 @@ export default {
         case 'primary':
           return 'btn';
         case 'outline':
-          return 'btn-outline'
+          return 'btn-outline';
         case 'success':
-          return 'btn-success'
+          return 'btn-success';
         case 'success-outline':
-          return 'btn-success-outline'
+          return 'btn-success-outline';
         default:
-          return 'btn'
+          return 'btn';
       }
     },
 
@@ -62,9 +62,7 @@ export default {
     },
 
     centerText() {
-      return this.hasLeftIcon === false && this.hasRightIcon === false
-        ? 'justify-center'
-        : 'justify-between';
+      return this.hasLeftIcon === false && this.hasRightIcon === false ? 'justify-center' : 'justify-between';
     },
   },
 
@@ -77,7 +75,7 @@ export default {
       this.$emit('mousedown');
     },
   },
-}
+};
 </script>
 
 <style scoped>

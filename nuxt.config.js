@@ -7,35 +7,20 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  css: [
-    '~/assets/css/custom.css',
-  ],
+  css: ['~/assets/css/custom.css'],
 
-  plugins: [
-    '~/plugins/vuePortal.js',
-    '~/plugins/toast.js',
-    '~/plugins/modal.js',
-  ],
+  plugins: ['~/plugins/vuePortal.js', '~/plugins/toast.js', '~/plugins/modal.js'],
 
   components: true,
 
-  buildModules: [
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss',
-  ],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss'],
 
-  modules: [
-    '@nuxtjs/auth-next',
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-  ],
+  modules: ['@nuxtjs/auth-next', '@nuxtjs/axios', '@nuxtjs/pwa'],
 
   auth: {
     strategies: {
@@ -77,10 +62,9 @@ export default {
 
   pwa: {
     manifest: {
-      lang: 'en'
-    }
+      lang: 'en',
+    },
   },
 
-  build: {
-  }
-}
+  build: {},
+};

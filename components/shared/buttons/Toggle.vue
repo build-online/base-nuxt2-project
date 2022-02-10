@@ -48,7 +48,7 @@ export default {
       on: false,
     };
   },
-  
+
   methods: {
     toggle() {
       this.on = !this.on;
