@@ -22,11 +22,11 @@ export default {
   components: { Label },
 
   props: {
-    label: { type: String },
+    label: { type: String, default: '' },
     resize: { type: String, default: 'resize-none' },
     rows: { type: String, default: '3' },
-    errors: { type: Array },
-    placeholder: { type: String },
+    errors: { type: Array, default: () => [] },
+    placeholder: { type: String, default: '' },
   },
 
   methods: {
