@@ -113,6 +113,6 @@ export default {
         },
       });
     },
-  }
-}
+  },
+};
 </script>
