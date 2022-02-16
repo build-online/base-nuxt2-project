@@ -18,7 +18,7 @@ module.exports = {
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/component-name-in-template-casing': ['error', 'PascalCase'],
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'vue/order-in-components': process.env.NODE_ENV === 'production' ? 'off' : 'warn',
     'vue/require-default-prop': process.env.NODE_ENV === 'production' ? 'off' : 'warn',
   },
