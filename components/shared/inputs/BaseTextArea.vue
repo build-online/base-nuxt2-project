@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!--Label-->
-    <Label :text="label" />
+    <InputLabel :text="label" />
     <textarea
       :placeholder="placeholder"
       :rows="rows"
@@ -14,12 +13,12 @@
 </template>
 
 <script>
-import Label from '@/components/shared/Label';
+import InputLabel from '@/components/shared/InputLabel';
 
 export default {
   name: 'BaseTextArea',
 
-  components: { Label },
+  components: { InputLabel },
 
   props: {
     label: { type: String },
