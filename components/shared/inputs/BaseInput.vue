@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!--Label-->
-    <Label :text="label" />
+    <InputLabel :text="label" />
     <div class="mt-1 relative rounded-md shadow-sm">
       <!--Left icon-->
       <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -26,12 +25,12 @@
 </template>
 
 <script>
-import Label from '@/components/shared/Label';
+import InputLabel from '@/components/shared/InputLabel';
 
 export default {
   name: 'BaseInput',
 
-  components: { Label },
+  components: { InputLabel },
 
   props: {
     label: { type: String },

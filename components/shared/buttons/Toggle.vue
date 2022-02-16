@@ -26,17 +26,17 @@
         "
       ></span>
     </button>
-    <Label :text="label" />
+    <InputLabel :text="label" />
   </div>
 </template>
 
 <script>
-import Label from '@/components/shared/Label';
+import InputLabel from '@/components/shared/InputLabel';
 
 export default {
   name: 'Toggle',
 
-  components: { Label },
+  components: { InputLabel },
 
   props: {
     background: { type: String, default: 'bg-success' },

@@ -1,6 +1,6 @@
 <template>
   <div v-on-clickaway="close">
-    <Label :text="label" />
+    <InputLabel :text="label" />
     <div class="mt-1 relative">
       <button type="button" class="select" @click="isOpen = !isOpen">
         <span v-if="selectedOption === null" class="block truncate">Select an option</span>
@@ -40,14 +40,14 @@
 <script>
 import { mixin as clickaway } from 'vue-clickaway';
 
-import Label from '@/components/shared/Label';
+import InputLabel from '@/components/shared/InputLabel';
 import ArrowsIcon from '@/components/shared/icons/ArrowsIcon';
 import CheckIcon from '@/components/shared/icons/CheckIcon';
 
 export default {
   name: 'BaseSelect',
 
-  components: { CheckIcon, ArrowsIcon, Label },
+  components: { CheckIcon, ArrowsIcon, InputLabel },
 
   mixins: [clickaway],
 
