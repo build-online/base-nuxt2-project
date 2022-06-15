@@ -3,21 +3,7 @@
     <div v-show="show" class="fixed z-50 inset-0 overflow-y-auto bg-black-transparent">
       <div class="flex justify-center items-center h-screen">
         <div
-          class="
-            inline-block
-            align-bottom
-            bg-white
-            rounded-lg
-            pt-2
-            pb-8
-            px-8
-            text-left
-            overflow-hidden
-            shadow-xl
-            transform
-            transition-all
-            sm:align-middle sm:max-w-lg sm:w-full
-          "
+          class="inline-block align-bottom bg-white rounded-lg pt-2 pb-8 px-8 text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full"
         >
           <div class="text-center mt-2">
             <div class="flex justify-between">
