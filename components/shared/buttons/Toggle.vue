@@ -10,20 +10,7 @@
       <span
         aria-hidden="true"
         :class="on ? 'translate-x-5' : 'translate-x-0'"
-        class="
-          pointer-events-none
-          inline-block
-          h-5
-          w-5
-          rounded-full
-          bg-white
-          shadow
-          transform
-          ring-0
-          transition
-          ease-in-out
-          duration-200
-        "
+        class="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
       ></span>
     </button>
     <InputLabel :text="label" />
