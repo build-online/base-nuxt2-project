@@ -23,6 +23,7 @@ import Sidebar from '@/components/shared/layout/Sidebar';
 
 export default {
   components: { Toast, Modal, Sidebar },
+  auth: false,
 };
 </script>
 

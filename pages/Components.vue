@@ -9,7 +9,7 @@
       </div>
       <div class="flex flex-col space-y-5 items-start">
         <div class="grid grid-cols-2 grid-rows-2 gap-4 items-center w-full">
-          <BaseButton text="Login" @click="onLogin" />
+          <BaseButton text="Login" @click="$router.push('login')" />
           <BaseButton text="Button" size="small" />
           <BaseButton text="Launch toast" btn-style="outline" @click="launchToast">
             <template slot="leftIcon">
@@ -104,15 +104,6 @@ export default {
           description: 'This is the description',
         },
         maxHeight: '530px',
-      });
-    },
-
-    async onLogin() {
-      await this.$auth.loginWith('local', {
-        data: {
-          email: 'admin@admin.com',
-          password: 'password',
-        },
       });
     },
   },
