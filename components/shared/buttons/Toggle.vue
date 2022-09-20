@@ -7,11 +7,7 @@
       role="switch"
       @click="toggle"
     >
-      <span
-        aria-hidden="true"
-        :class="on ? 'translate-x-5' : 'translate-x-0'"
-        class="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
-      ></span>
+      <span aria-hidden="true" :class="on ? 'translate-x-5' : 'translate-x-0'" class="toggle-circle"></span>
     </button>
     <InputLabel :text="label" />
   </div>
@@ -48,5 +44,9 @@ export default {
 <style scoped>
 .toggle-container {
   @apply relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none;
+}
+
+.toggle-circle {
+  @apply pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200;
 }
 </style>

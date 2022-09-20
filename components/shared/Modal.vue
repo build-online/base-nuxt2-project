@@ -1,98 +1,120 @@
 <template>
-  <transition @enter="onEnter">
-    <div v-show="show" class="fixed z-50 inset-0 overflow-y-auto bg-black-transparent">
-      <div class="flex justify-center items-center h-screen">
-        <div
-          class="inline-block align-bottom bg-white rounded-lg pt-2 pb-8 px-8 text-left overflow-hidden shadow-xl transform transition-all sm:align-middle sm:max-w-lg sm:w-full"
-        >
-          <div class="text-center mt-2">
-            <div class="flex justify-between">
-              <h3 id="modal-title" class="text-2xl leading-6 font-medium text-gray-900">
-                {{ title ? title : 'Title' }}
-              </h3>
-
-              <button @click="close">
-                <XIcon stroke-width="3" />
-              </button>
+  <transition v-if="modalVisible" name="modal-fade">
+    <div class="modal-backdrop">
+      <div
+        class="modal"
+        :class="[padding]"
+        :style="[{ 'max-width': maxWidth }, { 'max-height': maxHeight }]"
+        role="dialog"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDescription"
+      >
+        <div class="flex justify-between">
+          <div class="flex space-x-4" :class="{ invisible: hideTitle }">
+            <div v-if="titleIcon" :class="titleIconClasses">
+              <component :is="titleIcon" />
             </div>
-            <div class="mt-2">
-              <p class="text-sm text-gray-500">
-                <component v-bind:is="component" v-on-clickaway="close" :initialData="initialData" />
-              </p>
-            </div>
+            <h3 class="title-m-600">{{ title }}</h3>
           </div>
+          <button class="w-5" @click="close">
+            <XIcon />
+          </button>
         </div>
+        <component
+          :is="component"
+          id="modalDescription"
+          v-on-clickaway="close"
+          :initial-data="initialData"
+          @hideTitle="hideTitle = true"
+        ></component>
       </div>
     </div>
   </transition>
 </template>
 
 <script>
-import anime from 'animejs';
+import { mapGetters, mapState } from 'vuex';
 import { XIcon } from 'vue-feather-icons';
 import { mixin as clickaway } from 'vue-clickaway';
 
 export default {
   name: 'Modal',
-
-  components: {
-    XIcon,
-  },
-
+  components: { XIcon },
   mixins: [clickaway],
 
   data() {
     return {
-      show: false,
-      title: '',
       component: null,
-      initialData: {},
+      hideTitle: false,
     };
   },
 
-  methods: {
-    close() {
-      this.show = false;
-    },
+  computed: {
+    ...mapGetters({
+      modalVisible: 'modal/visible',
+      initialData: 'modal/initialData',
+      title: 'modal/title',
+      titleIcon: 'modal/titleIcon',
+      titleIconClasses: 'modal/titleIconClasses',
+      padding: 'modal/padding',
+      maxWidth: 'modal/maxWidth',
+      maxHeight: 'modal/maxHeight',
+    }),
 
-    handleEscape(e) {
-      if (e.keyCode === 27) {
-        this.close();
-      }
-    },
+    ...mapState({
+      modalComponent: state => state.modal.component,
+    }),
+  },
 
-    onEnter(el) {
-      anime({
-        targets: el,
-        opacity: [0, 1],
-        duration: 2000,
-      });
+  watch: {
+    modalComponent(componentName) {
+      if (!componentName) return;
+      this.component = () => import(`@/components/modals/${componentName}`);
+    },
+    modalVisible(visible) {
+      document.body.classList.toggle('overflow-hidden', visible);
     },
   },
 
   created() {
-    this.$store.subscribe((mutation, state) => {
-      if (mutation.type === 'modal/open') {
-        this.title = state.modal.title;
-        this.component = state.modal.component;
-        this.initialData = state.modal.initialData;
-        this.show = true;
-      }
+    document.addEventListener('keydown', this.escapeHandler);
+    this.$once('hook:destroyed', () => {
+      document.removeEventListener('keydown', this.escapeHandler);
     });
   },
 
-  mounted() {
-    document.addEventListener('keyup', this.handleEscape);
-  },
+  methods: {
+    close() {
+      this.$modal.close();
+    },
 
-  destroyed() {
-    document.removeEventListener('keyup', this.handleEscape);
+    escapeHandler(e) {
+      if (e.key === 'Escape' && this.modalVisible) {
+        this.close();
+      }
+    },
   },
 };
 </script>
 
 <style scoped>
-.bg-black-transparent {
-  background: #0000003b;
+.modal-backdrop {
+  @apply bg-black bg-opacity-30 z-50 fixed top-0 bottom-0 left-0 right-0 flex justify-center items-center py-10;
+}
+
+.modal {
+  @apply bg-white z-50 rounded-xl overflow-y-scroll h-full w-full;
+  box-shadow: 40px 72px 96px 0px rgba(157, 149, 140, 0.2);
+  box-shadow: 24px 24px 40px 0px rgba(154, 151, 142, 0.15);
+}
+
+.modal-fade-enter,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 </style>

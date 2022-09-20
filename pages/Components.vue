@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="text-3xl font-bold text-primary mb-5">Components</h1>
-    <div class="grid grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
       <div class="flex flex-col space-y-5">
         <BaseInput v-model="inputData" label="Name" />
         <BaseSelect v-model="selectedOption" label="Options" :options="selectOptions" />
@@ -97,11 +97,13 @@ export default {
 
     launchModal() {
       this.$modal.open({
-        component: () => import('@/components/forms/Example'),
+        component: 'ExampleModal',
+        title: 'Example modal',
         initialData: {
-          name: 'Juan',
-          surname: 'Vargas',
+          name: 'Juan Vargas',
+          description: 'This is the description',
         },
+        maxHeight: '530px',
       });
     },
 

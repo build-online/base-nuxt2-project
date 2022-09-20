@@ -72,7 +72,7 @@ There are two custom injections on this project in order to keep the app using o
 
 ```
 this.$modal.open({
-    component: () => import('@/components/example');
+    component: 'ModalName';
 });
 ```
 

@@ -1,11 +1,11 @@
 <template>
   <form class="w-full p-5">
     <div class="pb-4">
-      <BaseInput v-model="inputData" label="Name" />
+      <BaseInput v-model="data.name" label="Name" />
     </div>
 
     <div class="pb-4">
-      <BaseInput v-model="inputData" label="Description" />
+      <BaseInput v-model="data.description" label="Description" />
     </div>
 
     <div class="pb-4">
@@ -31,10 +31,13 @@ export default {
   },
 
   props: {
-    initialData: {
-      type: Object,
-      default: () => {},
-    },
+    initialData: { type: Object, default: () => {} },
+  },
+
+  data() {
+    return {
+      data: {},
+    };
   },
 
   created() {
