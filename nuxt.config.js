@@ -34,15 +34,15 @@ export default {
         },
         endpoints: {
           login: {
-            url: `${process.env.NUXT_ENV_BASE_URL}/api/v1/auth/login`,
+            url: `${process.env.API_URL}/api/v1/auth/login`,
             method: 'post',
           },
           logout: {
-            url: `${process.env.NUXT_ENV_BASE_URL}/api/v1/auth/logout`,
+            url: `${process.env.API_URL}/api/v1/auth/logout`,
             method: 'post',
           },
           user: {
-            url: `${process.env.NUXT_ENV_BASE_URL}/api/v1/auth/user`,
+            url: `${process.env.API_URL}/api/v1/auth/user`,
             method: 'get',
           },
         },
@@ -57,7 +57,7 @@ export default {
   },
 
   axios: {
-    baseURL: process.env.NUXT_ENV_BASE_URL,
+    baseURL: process.env.API_URL,
   },
 
   pwa: {
