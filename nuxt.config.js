@@ -31,43 +31,40 @@ export default {
 
   auth: {
     strategies: {
-      laravelSanctum: {
-        provider: 'laravel/sanctum',
-        url: process.env.API_URL,
-        endpoints: {
-          user: { url: '/users/auth', method: 'get', propertyName: 'data' },
+      local: {
+        token: {
+          property: 'token',
+          global: true,
         },
         user: {
-          property: 'data',
+          property: 'user',
         },
-      },
-      impersonate: {
-        scheme: '~/schemes/impersonate',
         endpoints: {
-          login: { url: '/validate-token', method: 'post' },
-          csrf: { url: '/sanctum/csrf-cookie', method: 'get' },
-          user: { url: '/users/auth', method: 'get', propertyName: 'data' },
-        },
-        user: {
-          property: 'data',
+          login: {
+            url: `${process.env.API_URL}/api/v1/auth/login`,
+            method: 'post',
+          },
+          logout: {
+            url: `${process.env.API_URL}/api/v1/auth/logout`,
+            method: 'post',
+          },
+          user: {
+            url: `${process.env.API_URL}/api/v1/auth/user`,
+            method: 'get',
+          },
         },
       },
     },
     redirect: {
-      login: '/login',
-      logout: '/login',
-      callback: '/login',
-      home: '/',
+      login: '/auth/login',
+      logout: '/',
+      callback: '/auth/login',
+      home: false,
     },
-  },
-
-  router: {
-    // middleware: ['auth'], // Uncomment if you want the middleware to be called for every route change. (For example if the default behaviour is to be logged in order to use the app)
   },
 
   axios: {
     baseURL: process.env.API_URL,
-    credentials: true,
   },
 
   pwa: {
